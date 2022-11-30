@@ -1,126 +1,54 @@
-//1 task
 <?php
-$value1=3.65;
-$value2=6.65;
-$value3=-11.54;
-var_dump(round($value1,1,PHP_ROUND_HALF_UP));
-var_dump(round($value2,1,PHP_ROUND_HALF_DOWN));
-var_dump(round($value3,1,PHP_ROUND_HALF_ODD));
-?>
-//2 task
-<?php
-$value1=rand(1,30);
-$value2=rand(1,30);
-$answer='';
-$Add=1;
-$Substitute=2;
-$Multiply=3;
-$divide=4;
-$modal_divide=5;
-$randomizer=rand(1,5);
-if ($randomizer=="1"){
-    $answer=$value1+$value2;
-    echo "variable 1:  ".$value1 .'<br>';
-    echo "variable 2:  ".$value2 .'<br>';
-    echo "rez:  " .$answer;
-}
-if ($randomizer=="2"){
-    $answer=$value1 - $value2;
-    echo "variable 1:".$value1 .'<br>';
-    echo "variable 2:".$value2 .'<br>';
-    echo "rez:  " .$answer;
-}
-if ($randomizer=="3"){
-    $answer=$value1 * $value2;
-    echo "variable 1:".$value1 .'<br>';
-    echo "variable 2:".$value2 .'<br>';
-    echo "rez:  " .$answer;
-}
-if ($randomizer=="4"){
-    $answer=$value1 / $value2;
-    echo "variable 1:".$value1 .'<br>';
-    echo "variable 2:".$value2 .'<br>';
-    echo "rez:  " .$answer;
-}
-if ($randomizer=="5"){
-    $answer=$value1 % $value2;
-    echo "variable 1:".$value1 .'<br>';
-    echo "variable 2:".$value2 .'<br>';
-    echo "rez:  " .$answer;
-}
-?>
-//3 task
-<?php
-$player1="Alisa";
-$player2="Siri";
-$sulifa1=rand(1,3);
-if ($sulifa1==1) {
-    $sulifa1='rock';}
-if ($sulifa1==2) {
-    $sulifa1='paper';}
-if ($sulifa1==3) {
-    $sulifa1='scuissors';
-}
-$sulifa2=rand(1,3);
-if ($sulifa2==1) {
-    $sulifa2='rock';}
-if ($sulifa2==2) {
-    $sulifa2='paper';}
-if ($sulifa2==3) {
-    $sulifa2='scuissors';
-}
-if ($sulifa1=='rock' and $sulifa2=='paper'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player2;
-}
-if ($sulifa1=='rock' and $sulifa2=='scuissors'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player1;
-}
-if ($sulifa1=='scuissors' and $sulifa2=='paper'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player1;
-}
-if ($sulifa1=='paper' and $sulifa2=='rock'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player2;
-}
-if ($sulifa1=='scuissors' and $sulifa2=='rock'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player2;
-}
-if ($sulifa1=='paper' and $sulifa2=='scuissors'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  '.$player2;
-}
-if ($sulifa1=='scuissors' and $sulifa2=='scuissors'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  draw';
-}
-if ($sulifa1=='paper' and $sulifa2=='paper'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner: draw';
-}
-if ($sulifa1=='rock' and $sulifa2=='rock'){
-    echo 'choose of first player:  '.$sulifa1 .'<br>';
-    echo 'choose of second player:  '.$sulifa2 .'<br>';
-    echo 'winner:  draw';
-}
+
+'<br>';
+date_default_timezone_set('UTC');
+echo 'UTC'.'='. date('H:i:s j.M.Y') .'<br>';
+echo '<pre>';
+date_default_timezone_set('Europe/Paris');
+echo 'Europe/Paris'.'='. date('H:i:s j.M.Y') .'<br>';
+echo '<pre>';
+date_default_timezone_set('Europe/London');
+echo 'Europe/London'.'='. date('H:i:s j.M.Y') .'<br>';
+echo '<pre>';
+date_default_timezone_set('Asia/Aqtau');
+echo 'Asia/Aqtau'.'='. date('H:i:s j.M.Y') .'<br>';
+
+$dayofbirth="04";
+$monthofbirth="08";
+$year = (int)date('Y') + 1;
+$nextbirthday=mktime(0,0,0,$dayofbirth,$monthofbirth,$year);
+$currentTime = time();
+$seconds=86400; //кол-во секунд за день
+$leftdays=floor(($nextbirthday-$currentTime)/$seconds);
+echo 'До дня рождения:' .$leftdays .' дней' .'<br>';
+
+echo time();
+$NY=mktime(00,00,00,01,01,2023);
+echo $NY.'='. date('H:i:s j.M.Y',$NY) .'<br>';
+echo date('H:i:s j.M.Y') .'<br>' ;
+$a=($NY-time()); //в секундах;
+$b=floor($a/60/60/24); // Делим: в 1 раз определить кол-во минут, во 2 раз определить часы,в 3 раз определить дни
+echo 'До нового года осталось:  ' .$b .'      дней' .'<br>';
+
+
+$dayCount = rand(10,100);
+$dayText = "day";
+$upddate = strtotime("+{$dayCount} {$dayText}", strtotime('today'));
+$currentTime = time();
+echo date('d.m.Y H:i:s', $upddate);
+echo mktime(0, 0, 0, 11, 21, 2022);
+echo date('H:i:s d.M.Y', mktime(0, 0, 0, 12, 21, 2022));
+$ts = strtotime('next Thursday', strtotime('28 february 2023'));//28 февраля 2023
+echo $ts .' = ' . date('H:i:s d.M.Y', $ts) .'<br>';
+
+
+$birthday=mktime(00,00,00,07,19,1998);
+echo 'день рождения:' .$birthday.'='. date('j.M.Y',$birthday) .'<br>';
+echo 'Сегодня:' .date('j.M.Y') .'<br>' ;
+$age=floor((time()-$birthday)/31536000); // 31536000 в одном году столько секунд
+echo 'Полный возраст:  ' .$age .'лет' .'<br>';
+
 ?>
 
-//4 task
-<?php
-$x1=25;
-$x2=35;
-list($x1,$x2)=[$x2,$x1];
-echo "x1:$x1" .'<br>';
-echo "x2:$x2";
-?>
+
+
